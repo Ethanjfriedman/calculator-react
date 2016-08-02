@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import keys from './keys.js';
+import keys from '../utils/keys.js';
 import Key from './Key.js';
-import keyStyles from './keyStyles.js';
+import keyStyles from '../styles/keyStyles.js';
 
 class Keyboard extends Component {
   constructor(props) {
@@ -24,16 +24,16 @@ class Keyboard extends Component {
     const numKeys = this.state.numKeys.map(k =>
       <Key key={k.value}
            value={k.value}
-           style={numStyles}
+           keyStyle={numStyles}
            onClickHandler={this.props.handleNumEntry} />);
     const opKeys = this.state.operatorKeys.map(k =>
       <Key key={k.value}
            value={k.value}
-           style={opStyles}
+           keyStyle={opStyles}
            onClickHandler={this.props.handleOp} />);
     const enterKey = <Key key={this.state.enterKey.value}
                           value={this.state.enterKey.value}
-                          style={enterStyles}
+                          keyStyle={enterStyles}
                           onClickHandler={this.props.handleCalculate}/>;
 
     return (

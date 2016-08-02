@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Display from './Display.js';
-import Keyboard from './Keyboard.js'
-import calcFxns from './calculatorFxns.js';
+import Display from '../components/Display.js';
+import Keyboard from '../components/Keyboard.js'
+import calcFxns from '../utils/calculatorFxns.js';
 
 class Calculator extends Component {
   constructor(props) {

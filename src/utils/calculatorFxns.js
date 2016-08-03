@@ -12,6 +12,10 @@ export default {
   square: function(a) { return a * a; },
   ln: function(a) { return Math.log(a); },
   log10: function(a) { return Math.log10(a); },
+  xToY: function(a, b) { return Math.pow(a, b); },
+  sin: function(a) { return Math.sin(a); },
+  cos: function(a) { return Math.cos(a); },
+  tan: function(a) { return Math.tan(a); },
   setOperation: function(op) {
     switch (op) {
       case '+':
@@ -32,6 +36,14 @@ export default {
         return this.ln;
       case 'log₁₀':
         return this.log10;
+      case 'xʸ':
+        return this.xToY;
+      case 'sin':
+        return this.sin;
+      case 'cos':
+        return this.cos;
+      case 'tan':
+        return this.tan;
       default:
         console.log('I am an error');
         return null;

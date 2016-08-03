@@ -17,13 +17,17 @@ export default {
     { value: '*' },
     { value: '/' },
     { value: '+/-'},
-    { value: 'C'},
     { value: '√'},
     { value: 'x²'},
     { value: 'ln'},
     { value: 'log₁₀'},
     { value: 'π'},
-    { value: 'e'}
+    { value: 'e'},
+    { value: 'xʸ'},
+    { value: 'sin'},
+    { value: 'cos'},
+    { value: 'tan'},
+    { value: 'C'}
   ],
   enterKey: { value: '=' }
 }

@@ -6,6 +6,6 @@ export default {
     display: 'inline-flex',
     flexWrap: 'wrap',
     width: '20vw',
-    margin: '1vw'
+    margin: '0.5vw'
   }
 }

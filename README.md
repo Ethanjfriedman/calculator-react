@@ -27,4 +27,8 @@ A simple pocket calculator, built in React.
 * Add in button to copy result to clipboard
 
 UPDATE 8/3
-* also added in keys for pi and e, x^y
+* also added in keys for π, *e*, xʸ ...
+* added in static Express server! To serve:
+  - run `npm run build` to generate the build for deployment (in `./build`)
+  - run `npm start` to serve it up!
+* changed the prior `start` script to `start-dev`: to start the app in development mode (with hot reloading, etc.), run `npm run start-dev`.

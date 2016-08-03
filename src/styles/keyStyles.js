@@ -13,11 +13,11 @@ export default {
     hoverColor: 'rgba(53, 77, 84, 1.0)'
   },
   opKeys: {
-    backgroundColor: 'red',
-    hoverColor: 'orange'
+    backgroundColor: 'rgba(174, 69, 60, 1.0)',
+    hoverColor: 'rgba(133, 32, 24, 1.0)'
   },
   enterKey: {
-    backgroundColor: 'green',
-    hoverColor: 'lightgreen'
+    backgroundColor: 'rgba(149, 167, 113, 1.0)',
+    hoverColor: 'rgba(118, 137, 81, 1.0)'
   }
 };

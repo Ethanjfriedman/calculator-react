@@ -1,9 +1,12 @@
 export default {
-  incrementByBase: (prev, n, base) => (prev * base) + n,
+  incrementByBase: function(prev, n, base) {return (prev * base) + n},
   add: function(a, b) { return a + b; },
   subtract: function(a, b) { return a - b; },
   multiply: function(a, b) { return a * b; },
-  divide: function(a, b) { return a / b; },
+  divide: function(a, b) {
+    if (!b) { return 'ERR Divide By Zero'; }
+    return a / b;
+  },
   switchSign: function(a) { return -a; },
   setOperation: function(op) {
     switch (op) {

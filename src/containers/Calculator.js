@@ -24,7 +24,7 @@ class Calculator extends Component {
     this.setState({ currNum: newNum, display: newNum });
   }
 
-  handleOp(op) {
+  handleOp(op) { // TODO move meat of this to calculatorFxns.js
     if (op === '+/-') {
       const n = this.state.currNum * -1;
       this.setState({currNum: n, display: n});

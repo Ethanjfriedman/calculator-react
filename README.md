@@ -18,10 +18,13 @@ A simple pocket calculator, built in React.
 * Add in 'repeat previous operation' ability by repeatedly pressing equal sign (so that `3 + 5 = =` will result in 13)
 * Add in better parsing to avoid various errors if impossible key combos are pressed
 * Add in button that reveals additional operators such as:
-  - trig operations (sin, cos, tan, etc.)
+  - ~~trig operations (sin, cos, tan, etc.)~~
   - scientific notation
   - ~~log and ln~~
   - ~~square root~~
   - ~~x^2~~
   - others?
 * Add in button to copy result to clipboard
+
+UPDATE 8/3
+* also added in keys for pi and e, x^y

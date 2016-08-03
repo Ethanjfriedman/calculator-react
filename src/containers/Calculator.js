@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Display from '../components/Display.js';
 import Keyboard from '../components/Keyboard.js'
 import calcFxns from '../utils/calculatorFxns.js';
+import calcStyles from '../styles/Calculator.js';
 
 class Calculator extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Calculator extends Component {
       currNum: 0,
       priorNum: null,
       operation: null,
-      base: 10
+      base: 10          // TODO: add in support for non-base 10 arithmetic
     };
   }
 
@@ -24,10 +25,11 @@ class Calculator extends Component {
   }
 
   handleOp(op) {
-    console.log(op);
     if (op === '+/-') {
       const n = this.state.currNum * -1;
       this.setState({currNum: n, display: n});
+    } else if (op === 'C') {
+      this.setState({ display: null, currNum: 0, priorNum: null, operation: null});
     } else if (!this.state.operation) {
       const temp = this.state.currNum;
       this.setState({ operation: op, priorNum: temp, currNum: 0 });
@@ -52,7 +54,7 @@ class Calculator extends Component {
 
   render() {
     return (
-      <div>
+      <div style={calcStyles}>
         <Display display={this.state.display} />
         <Keyboard handleNumEntry={this.handleNumEntry}
                   handleOp={this.handleOp}

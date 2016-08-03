@@ -4,24 +4,18 @@ class Key extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false,
-      hoverStyle: {
-        backgroundColor: 'lightblue'
-      }
+      hover: false
     }
     this.toggleHover = this.toggleHover.bind(this);
   }
 
   toggleHover() {
     this.setState({hover: !this.state.hover});
-    console.log(this.state.hover);
   }
 
   makeKeyStyle() {
-    let style = {
-      width: this.props.keyStyle.width,
-      height: this.props.keyStyle.height
-    }
+    let style = {};
+    Object.assign(style, this.props.keyStyle);
     if (this.state.hover) {
       style.backgroundColor = this.props.keyStyle.hoverColor;
     } else {
@@ -37,7 +31,7 @@ class Key extends Component {
       <div style={finalStyle}
            onClick={event => this.props.onClickHandler(this.props.value)}
            onMouseEnter={this.toggleHover}
-           onMouseLeave={this.toggleHover} >{this.props.value}</div>
+           onMouseLeave={this.toggleHover} ><span>{this.props.value}</span></div>
     );
   }
 }

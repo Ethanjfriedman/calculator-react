@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import keys from '../utils/keys.js';
 import Key from './Key.js';
 import keyStyles from '../styles/keyStyles.js';
+import keyboardStyles from '../styles/Keyboard.js';
 
 class Keyboard extends Component {
   constructor(props) {
@@ -37,9 +38,11 @@ class Keyboard extends Component {
                           onClickHandler={this.props.handleCalculate}/>;
 
     return (
-      <div className='keyboard'>
-        <div className='numkeys'>{numKeys}</div>
-        <div className='opKeys'>{opKeys}</div>
+      <div className='keyboard' style={keyboardStyles.keyboard}>
+        <div className='numkeys'
+             style={keyboardStyles.keyboardSections}>{numKeys}</div>
+        <div className='opKeys'
+             style={keyboardStyles.keyboardSections}>{opKeys}</div>
         <div className='enterKey'>{enterKey}</div>
       </div>
     );

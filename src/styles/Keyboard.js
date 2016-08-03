@@ -5,6 +5,7 @@ export default {
   keyboardSections: {
     display: 'inline-flex',
     flexWrap: 'wrap',
-    width: '20vw'
+    width: '20vw',
+    margin: '1vw'
   }
 }

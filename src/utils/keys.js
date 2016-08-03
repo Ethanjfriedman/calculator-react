@@ -17,7 +17,11 @@ export default {
     { value: '*' },
     { value: '/' },
     { value: '+/-'},
-    { value: 'C'}
+    { value: 'C'},
+    { value: '√'},
+    { value: 'x²'},
+    { value: 'ln'},
+    { value: 'log₁₀'}
   ],
   enterKey: { value: '=' }
 }

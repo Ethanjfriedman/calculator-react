@@ -13,6 +13,7 @@ class Calculator extends Component {
     this.state = {
       display: null,
       currNum: 0,
+      float: false, // TODO add in support for floating point numbers
       priorNum: null,
       operation: null,
       base: 10          // TODO: add in support for non-base 10 arithmetic

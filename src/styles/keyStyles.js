@@ -18,6 +18,6 @@ export default {
   },
   enterKey: {
     backgroundColor: 'rgba(149, 167, 113, 1.0)',
-    hoverColor: 'rgba(118, 137, 81, 1.0)'
+    hoverColor: 'rgba(118, 137, 81, 1.0)',
   }
 };

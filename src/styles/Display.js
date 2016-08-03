@@ -1,5 +1,5 @@
 export default {
-  width: '20vw',
+  width: '70vw',
   height: '10vh',
   backgroundColor: '#222',
   display: 'flex',

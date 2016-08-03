@@ -20,6 +20,7 @@ class Key extends Component {
       style.backgroundColor = this.props.keyStyle.hoverColor;
       style.fontWeight = 'bold';
       style.color = 'white';
+      style.fontSize = '1.5em';
     } else {
       style.backgroundColor = this.props.keyStyle.backgroundColor;
       style.fontWeight = 'normal';
@@ -33,9 +34,11 @@ class Key extends Component {
 
     return (
       <div style={finalStyle}
-           onClick={event => this.props.onClickHandler(this.props.value)}
+           onClick={() => this.props.onClickHandler(this.props.value)}
            onMouseEnter={this.toggleHover}
-           onMouseLeave={this.toggleHover} ><span>{this.props.value}</span></div>
+           onMouseLeave={this.toggleHover} >
+        <span>{this.props.value}</span>
+      </div>
     );
   }
 }

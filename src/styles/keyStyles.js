@@ -2,7 +2,7 @@ export default {
   keys: {
     height: '6vw',
     width: '6vw',
-    borderRadius: 5,
+    borderRadius: 10,
     display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',

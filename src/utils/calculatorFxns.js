@@ -16,6 +16,18 @@ export default {
   sin: function(a) { return Math.sin(a); },
   cos: function(a) { return Math.cos(a); },
   tan: function(a) { return Math.tan(a); },
+  cubeRoot: function(a) { return Math.cbrt(a); },
+  percent: function(a) { return a / 100; },
+  ythRoot: function(a, b) { return Math.pow(a, (1 / b)); },
+  inverse: function(a) { return 1 / a; },
+  factorial: function(a) {
+    let fact = 1;
+    while (a > 1) {
+      fact *= a;
+      a--;
+    }
+    return fact;
+  },
   setOperation: function(op) {
     switch (op) {
       case '+':
@@ -24,7 +36,7 @@ export default {
         return this.subtract;
       case '*':
         return this.multiply;
-      case '/':
+      case '÷':
         return this.divide;
       case '+/-':
         return this.switchSign;
@@ -44,6 +56,16 @@ export default {
         return this.cos;
       case 'tan':
         return this.tan;
+      case '∛':
+        return this.cubeRoot;
+      case '%':
+        return this.percent;
+      case 'ʸ√x':
+        return this.ythRoot;
+      case '¹/ₓ':
+        return this.inverse;
+      case 'x!':
+        return this.factorial;
       default:
         console.log('I am an error');
         return null;

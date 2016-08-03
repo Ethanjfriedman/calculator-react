@@ -1,11 +1,12 @@
 export default {
   keyboard: {
-    width: '20vw'
+    width: '70vw'
   },
   keyboardSections: {
     display: 'inline-flex',
     flexWrap: 'wrap',
-    width: '20vw',
-    margin: '0.5vw'
+    justifyContent: 'center',
+    width: '70vw',
+    margin: '0.5vw auto'
   }
 }

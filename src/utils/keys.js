@@ -9,7 +9,7 @@ export default {
     { value: 7 },
     { value: 8 },
     { value: 9 },
-    { value: 0 }
+    { value: 0 },
   ],
   operatorKeys: [
     { value: '+' },
@@ -21,7 +21,9 @@ export default {
     { value: '√'},
     { value: 'x²'},
     { value: 'ln'},
-    { value: 'log₁₀'}
+    { value: 'log₁₀'},
+    { value: 'π'},
+    { value: 'e'}
   ],
   enterKey: { value: '=' }
 }

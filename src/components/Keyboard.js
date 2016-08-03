@@ -22,8 +22,8 @@ class Keyboard extends Component {
     const numStyles = this.mergeStyles('numKeys');
     const opStyles = this.mergeStyles('opKeys');
     const enterStyles = this.mergeStyles('enterKey');
-    enterStyles.width = '20vw';
-    
+    enterStyles.width = '18vw'; //TODO fix this it's hacky!
+
     const numKeys = this.state.numKeys.map(k =>
       <Key key={k.value}
            value={k.value}

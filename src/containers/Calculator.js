@@ -31,6 +31,10 @@ class Calculator extends Component {
       this.setState({currNum: n, display: n});
     } else if (op === 'C') {
       this.setState({ display: null, currNum: 0, priorNum: null, operation: null});
+    } else if (op === 'e') {
+      this.setState({display: Math.E, currNum: Math.E});
+    } else if (op === 'π') {
+      this.setState({display: Math.PI, currNum: Math.PI});
     } else if (!this.state.operation) {
       const temp = this.state.currNum;
       this.setState({ operation: op, priorNum: temp, currNum: 0 });

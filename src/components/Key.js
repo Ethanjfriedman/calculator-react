@@ -18,8 +18,12 @@ class Key extends Component {
     Object.assign(style, this.props.keyStyle);
     if (this.state.hover) {
       style.backgroundColor = this.props.keyStyle.hoverColor;
+      style.fontWeight = 'bold';
+      style.color = 'white';
     } else {
       style.backgroundColor = this.props.keyStyle.backgroundColor;
+      style.fontWeight = 'normal';
+      style.color = 'black';
     }
     return style;
   }

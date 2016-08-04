@@ -15,17 +15,23 @@ class Key extends Component {
 
   makeKeyStyle() {
     let style = {};
-    Object.assign(style, this.props.keyStyle);
+    Object.assign(style, this.props.keyStyle.hoverShadow, this.props.keyStyle);
     if (this.state.hover) {
-      style.backgroundColor = this.props.keyStyle.hoverColor;
+      style.backgroundColor = style.hoverColor;
       style.fontWeight = 'bold';
       style.color = 'white';
       style.fontSize = '1.5em';
+      style.WebkitBoxShadow = style.hoverShadow.WebkitBoxShadow;
+      style.MozBoxShadow = style.hoverShadow.WebkitBoxShadow;
+      style.msBoxShadow = style.hoverShadow.WebkitBoxShadow;
+      style.boxShadow = style.hoverShadow.WebkitBoxShadow;
     } else {
       style.backgroundColor = this.props.keyStyle.backgroundColor;
       style.fontWeight = 'normal';
       style.color = 'black';
+      style.WebkitBoxShadow = '0 0 0'
     }
+    console.log(style);
     return style;
   }
 

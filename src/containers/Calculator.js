@@ -4,6 +4,9 @@ import Keyboard from '../components/Keyboard.js'
 import calcFxns from '../utils/calculatorFxns.js';
 import calcStyles from '../styles/Calculator.js';
 
+// TODO use React Immutability helpers for all state modifications!!!
+/// !!! ^^^ !!!
+
 class Calculator extends Component {
   constructor(props) {
     super(props);
@@ -12,9 +15,10 @@ class Calculator extends Component {
     this.handleCalculate = this.handleCalculate.bind(this);
     this.handleOther = this.handleOther.bind(this);
     this.state = {
-      display: null,
+      display: { num: null,
+                 operation: null },
       currNum: 0,
-      float: null, // TODO add in support for floating point numbers
+      float: null,
       priorNum: null,
       operation: null,
       base: 10          // TODO: add in support for non-base 10 arithmetic
@@ -23,47 +27,65 @@ class Calculator extends Component {
 
   handleNumEntry(n) {
     const num = calcFxns.incrementByBase(this.state.currNum, n, this.state.base);
-    if (this.state.float === null) {
-      this.setState({ currNum: num,
-                      display: num });
-    } else {
-      this.setState({ currNum: num,
-                      display: num / this.state.float });
-    }
+    this.handleUpdateDisplay(num, this.state.float);
   }
 
-  handleUpdateDisplay(n) {
-
+  handleUpdateDisplay(n, float) {
+    if (float === null) {
+      this.setState({currNum: n, display: {num: n, operation: this.state.operation }});
+    } else {
+      this.setState({ currNum: n, display: {num: n / float, operation: this.state.operation }});
+    }
   }
 
   handleOther(key) {
     switch (key) {
       case '+/-':
         const n = this.state.currNum * -1;
-        this.setState({currNum: n, display: n});
+        this.setState({currNum: n, display:{num: n, operation: this.state.operation }});
         break
       case 'C':
-        this.setState({ display: null,
+        this.setState({ display: {
+                          num: null,
+                          operation: null
+                        },
                         currNum: 0,
                         priorNum: null,
                         float: null,
                         operation: null});
         break;
       case 'e':
-        this.setState({display: Math.E, currNum: Math.E});
+        this.setState({display: {
+                        num: Math.E,
+                        operation: this.state.operation
+                      },
+                      currNum: Math.E});
         break;
       case 'π':
-        this.setState({display: Math.PI, currNum: Math.PI});
+        this.setState({display: {
+                        num: Math.PI,
+                        operation: this.state.operation
+                      },
+                      currNum: Math.PI});
         break;
       case 'Rand':
         const r = Math.random();
-        this.setState({display: r, currNum: r});
+        this.setState({display: {
+                        num: r,
+                        operation: this.state.operation
+                      },
+                      currNum: r});
         break;
       case '.':
         if (!this.state.float) {
           let numStr = this.state.currNum.toString();
           const digits = numStr.length * this.state.base;
-          this.setState({ float: digits, display: `${numStr}.` });
+          this.setState({ float: digits,
+                          display: {
+                            num: `${numStr}.`,
+                            operation: this.state.operation
+                          }
+                        });
         }
       break;
       default:
@@ -74,7 +96,14 @@ class Calculator extends Component {
   handleOp(op) {
     if (!this.state.operation) {
       const temp = this.state.currNum;
-      this.setState({ operation: op, priorNum: temp, currNum: 0 });
+      this.setState({ operation: op,
+                      priorNum: temp,
+                      currNum: 0,
+                      display: {
+                        num: this.state.currNum,
+                        operation: op
+                      }
+      });
     }
   }
 
@@ -87,7 +116,10 @@ class Calculator extends Component {
 
   setResult(result) {
     this.setState({
-      display: result,
+      display: {
+        num: result,
+        operation: null
+      },
       operation: null,
       float: null,
       priorNum: result,
@@ -98,7 +130,8 @@ class Calculator extends Component {
   render() {
     return (
       <div style={calcStyles}>
-        <Display display={this.state.display} />
+        <Display num={this.state.display.num}
+                 op={this.state.display.operation} />
         <Keyboard handleNumEntry={this.handleNumEntry}
                   handleOp={this.handleOp}
                   handleOther={this.handleOther}

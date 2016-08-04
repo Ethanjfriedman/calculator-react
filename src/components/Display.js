@@ -2,17 +2,20 @@ import React from 'react';
 import displayStyles from '../styles/Display.js';
 
 const Display = props => {
-  const display = props.display === null ? 0 : props.display;
-
+  const numDisplay = props.num === null ? 0 : props.num;
   return (
-    <div style={displayStyles}><h3 style={displayStyles.h3}>{display}</h3></div>
+    <div style={displayStyles}>
+      <h3 style={displayStyles.op}>{props.op}</h3>
+      <h3 style={displayStyles.num}>{numDisplay}</h3>
+    </div>
   );
 }
 
-Display.propTypes = { display: React.PropTypes.oneOfType(
-                        [React.PropTypes.number, React.PropTypes.string])
-                    };
+Display.propTypes = {
+    num: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
+    op: React.PropTypes.string
+};
 
-Display.defaultProps = { display: 0 };
+Display.defaultProps = { num: 0, op: null };
 
 export default Display

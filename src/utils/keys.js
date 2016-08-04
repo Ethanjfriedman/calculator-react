@@ -1,44 +1,4 @@
-// export default {
-//   numKeys: [
-//     { value: 1, type: 'num' },
-//     { value: 2, type: 'num' },
-//     { value: 3, type: 'num' },
-//     { value: 4, type: 'num' },
-//     { value: 5, type: 'num' },
-//     { value: 6, type: 'num' },
-//     { value: 7, type: 'num' },
-//     { value: 8, type: 'num' },
-//     { value: 9, type: 'num' },
-//     { value: 0, type: 'num' },
-//   ],
-//   operatorKeys: [
-//     { value: '+', type: 'op' },
-//     { value: '-', type: 'op' },
-//     { value: '*', type: 'op' },
-//     { value: '÷', type: 'op' },
-//     { value: '√', type: 'op' },
-//     { value: 'x²', type: 'op' },
-//     { value: 'ln', type: 'op' },
-//     { value: 'log₁₀', type: 'op' },
-//     { value: 'xʸ', type: 'op' },
-//     { value: 'sin', type: 'op' },
-//     { value: 'cos', type: 'op' },
-//     { value: 'tan', type: 'op' },
-//     { value: '∛', type: 'op' },
-//     { value: 'ʸ√x', type: 'op' },
-//     { value: '%', type: 'op' },
-//     { value: '¹/ₓ', type: 'op' },
-//     { value: 'x!', type: 'op' },
-//     { value: 'Rand', type: 'op' },
-//     { value: 'C', type: 'other' },
-//     { value: '+/-', type: 'other' },
-//     { value: 'π', type: 'other' },
-//     { value: 'e', type: 'other' }
-//   ],
-//   enterKey: { value: '=', type: 'enter' }
-// }
 
-// refactoring keys
 export default [
     { value: 1, type: 'num' },
     { value: 2, type: 'num' },

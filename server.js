@@ -7,7 +7,7 @@ app.use(express.static('./build'));
 app.listen(PORT, err => {
   if (err) {
     console.error('error starting server', err);
-  }  else {
+  } else {
     console.log('server up and running on port', PORT);
   }
 });

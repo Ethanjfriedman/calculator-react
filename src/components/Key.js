@@ -14,8 +14,7 @@ class Key extends Component {
   }
 
   makeKeyStyle() {
-    let style = {};
-    Object.assign(style, this.props.keyStyle.hoverShadow, this.props.keyStyle);
+    const style = Object.assign({}, this.props.keyStyle.hoverShadow, this.props.keyStyle);
     if (this.state.hover) {
       style.backgroundColor = style.hoverColor;
       style.fontWeight = 'bold';
@@ -29,9 +28,7 @@ class Key extends Component {
       style.backgroundColor = this.props.keyStyle.backgroundColor;
       style.fontWeight = 'normal';
       style.color = 'black';
-      style.WebkitBoxShadow = '0 0 0'
     }
-    console.log(style);
     return style;
   }
 

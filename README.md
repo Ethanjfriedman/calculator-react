@@ -3,6 +3,8 @@
 Built to play around with React, and also the `create-react-app` module, which can be found at
 https://github.com/facebookincubator/create-react-app/blob/master/template/README.md
 
+#### See deployed version of this product at https://calculator-react.herokuapp.com/
+
 Feedback appreciated! My Github username is ethanjfriedman.
 
 ### What this project is
@@ -36,5 +38,5 @@ UPDATE 8/3/2016
 UPDATE 8/4/2016
 * We have a decimal point! For extra precision, all calculations are done as integers until the end (the display however shows the decimal point).
 * Fixed deployment error (`create-react-app` had automatically added in the `build/` directory to the .gitignore -- grrr).
-* Minor styling 
+* Minor styling
 * Minor refactoring

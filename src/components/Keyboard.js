@@ -15,16 +15,15 @@ class Keyboard extends Component {
     };
   }
 
-  mergeStyles(keyType) {
-    return Object.assign(keyStyles[keyType], keyStyles.keys);
+  mergeStyles(keyType, otherParamObj={}) {
+    return Object.assign(keyStyles[keyType], keyStyles.keys, otherParamObj);
   }
 
   render() {
     const numStyles = this.mergeStyles('numKeys');
     const opStyles = this.mergeStyles('opKeys');
-    const enterStyles = this.mergeStyles('enterKey');
+    const enterStyles = this.mergeStyles('enterKey', {width: '18vw'});
     const otherStyles = this.mergeStyles('otherKeys');
-    enterStyles.width = '18vw'; //TODO fix this it's hacky!
 
     const numKeys = this.state.numKeys.map(k =>
       <Key key={k.value}

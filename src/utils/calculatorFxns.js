@@ -1,5 +1,7 @@
 export default {
-  incrementByBase: function(prev, n, base) {return (prev * base) + n},
+  incrementByBase: function(prev, n, base) {
+    return prev * base + n;
+  },
   add: function(a, b) { return a + b; },
   subtract: function(a, b) { return a - b; },
   multiply: function(a, b) { return a * b; },

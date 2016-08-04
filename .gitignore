@@ -3,6 +3,7 @@
 # dependencies
 node_modules
 
+# make sure the next line is commented out for production!
 # build
 
 # misc

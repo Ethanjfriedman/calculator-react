@@ -1,4 +1,3 @@
-
 export default [
     { value: 1, type: 'num' },
     { value: 2, type: 'num' },
@@ -32,5 +31,6 @@ export default [
     { value: '+/-', type: 'other' },
     { value: 'π', type: 'other' },
     { value: 'e', type: 'other' },
+    { value: '.', type: 'other'},
     { value: '=', type: 'enter' }
 ];

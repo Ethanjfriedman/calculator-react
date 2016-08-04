@@ -11,7 +11,7 @@ A simple pocket calculator, built in React.
 
 ### TO DO
 * Continue refactoring
-* Add in floating point arithmetic
+* ~~Add in floating point arithmetic~~
 * Add in ability to operate in non-base 10 arithmetic
 * Add in memory (M+, MR, MC keys)
 * ~~Add in clear button~~
@@ -26,9 +26,15 @@ A simple pocket calculator, built in React.
   - others?
 * Add in button to copy result to clipboard
 
-UPDATE 8/3
+UPDATE 8/3/2016
 * also added in keys for π, *e*, xʸ ...
 * added in static Express server! To serve:
   - run `npm run build` to generate the build for deployment (in `./build`)
   - run `npm start` to serve it up!
 * changed the prior `start` script to `start-dev`: to start the app in development mode (with hot reloading, etc.), run `npm run start-dev`.
+
+UPDATE 8/4/2016
+* We have a decimal point! For extra precision, all calculations are done as integers until the end (the display however shows the decimal point).
+* Fixed deployment error (`create-react-app` had automatically added in the `build/` directory to the .gitignore -- grrr).
+* Minor styling 
+* Minor refactoring

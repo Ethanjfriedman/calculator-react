@@ -23,6 +23,7 @@ class Keyboard extends Component {
     const numStyles = this.mergeStyles('numKeys');
     const opStyles = this.mergeStyles('opKeys');
     const enterStyles = this.mergeStyles('enterKey');
+    const otherStyles = this.mergeStyles('otherKeys');
     enterStyles.width = '18vw'; //TODO fix this it's hacky!
 
     const numKeys = this.state.numKeys.map(k =>
@@ -40,11 +41,10 @@ class Keyboard extends Component {
     const otherKeys = this.state.otherKeys.map(k =>
       <Key key={k.value}
            value={k.value}
-           keyStyle={opStyles}
+           keyStyle={otherStyles}
            onClickHandler={this.props.handleOther} />
     );
-    const opAndOtherKeys = opKeys.concat(otherKeys);
-    
+
     const enterKey = <Key value={this.state.enterKey.value}
                           keyStyle={enterStyles}
                           onClickHandler={this.props.handleCalculate} />;
@@ -53,7 +53,9 @@ class Keyboard extends Component {
         <div className='numkeys'
              style={keyboardStyles.keyboardSections}>{numKeys}</div>
         <div className='opKeys'
-             style={keyboardStyles.keyboardSections}>{opAndOtherKeys}</div>
+             style={keyboardStyles.keyboardSections}>{opKeys}</div>
+        <div className='otherKeys'
+             style={keyboardStyles.keyboardSections}>{otherKeys}</div>
         <div className='enterKey'>{enterKey}</div>
       </div>
     );

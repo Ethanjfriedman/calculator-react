@@ -67,7 +67,7 @@ export default {
       case 'x!':
         return this.factorial;
       default:
-        console.log('I am an error');
+        console.error('Error in /src/utils/calculatorFxns.js switch statement.');
         return null;
     }
   }

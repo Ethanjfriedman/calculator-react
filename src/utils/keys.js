@@ -32,6 +32,7 @@ export default [
     { value: '+/-', type: 'other', tooltip: 'make number negative (or positive)' },
     { value: 'π', type: 'other', tooltip: 'insert π (3.14159...) as current number' },
     { value: '𝑒', type: 'other', tooltip: 'insert 𝑒 (2.71828...) as current number' },
-    { value: '.', type: 'other', tooltip: 'insert a decimal point'},
+    { value: '.', type: 'other', tooltip: 'insert a decimal point' },
+    { value: 'copy', type: 'other', tooltip: 'copy current number to clipboard' },
     { value: '=', type: 'enter' }
-];
+]

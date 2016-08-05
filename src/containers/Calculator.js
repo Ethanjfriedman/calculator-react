@@ -43,7 +43,8 @@ class Calculator extends Component {
     if (float === null) {
       this.setState({currNum: n, display: {num: n, operation: this.state.operation }});
     } else {
-      this.setState({ currNum: n, display: {num: n / float, operation: this.state.operation }});
+      const newFloat = float * this.state.base;
+      this.setState({ currNum: n, display: {num: n / float, operation: this.state.operation }, float: newFloat});
     }
   }
 
@@ -77,13 +78,16 @@ class Calculator extends Component {
       case '.':
         if (!this.state.float) { //this ugliness is to display the decimal point when it's pushed
           let numStr = this.state.currNum.toString();
-          const digits = numStr.length * this.state.base;
+          const digits = this.state.currNum === 0 ? 10 : numStr.length * this.state.base;
           this.setState({ float: digits,
                           display: {
                             num: `${numStr}.`,
                             operation: this.state.operation }
                         });
         }
+      break;
+      case 'copy':
+
       break;
       default:
         console.error('Unrecognized key');
@@ -92,10 +96,11 @@ class Calculator extends Component {
 
   handleOp(op) {
     if (!this.state.operation) {
-      const temp = this.state.currNum;
+      const temp = this.state.currNum / this.state.float;
       this.setState({operation: op,
                      priorNum: temp,
                      currNum: 0,
+                     float: null,
                      display: {num: this.state.currNum, operation: op}
                     });
     }
@@ -104,7 +109,8 @@ class Calculator extends Component {
   handleCalculate() {
     if (this.state.operation) {
       const operation = calcFxns.setOperation(this.state.operation);
-      this.setResult(operation(this.state.priorNum, this.state.currNum));
+      const temp = this.state.currNum / this.state.float;
+      this.setResult(operation(this.state.priorNum, temp));
     }
   }
 

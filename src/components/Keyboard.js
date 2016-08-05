@@ -34,12 +34,14 @@ class Keyboard extends Component {
     const opKeys = this.state.operatorKeys.map(k =>
       <Key key={k.value}
            value={k.value}
+           tooltip={k.tooltip}
            keyStyle={opStyles}
            onClickHandler={this.props.handleOp} />
     );
     const otherKeys = this.state.otherKeys.map(k =>
       <Key key={k.value}
            value={k.value}
+           tooltip={k.tooltip}
            keyStyle={otherStyles}
            onClickHandler={this.props.handleOther} />
     );

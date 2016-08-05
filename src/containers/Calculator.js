@@ -17,7 +17,9 @@ class Calculator extends Component {
     this.state = {
       display: { num: null,
                  operation: null },
+      memory: null, // TODO: implement memory
       currNum: 0,
+      repeat: false, // TODO: implement repeating = operation
       float: null,
       priorNum: null,
       operation: null,
@@ -51,10 +53,11 @@ class Calculator extends Component {
                         },
                         currNum: 0,
                         priorNum: null,
+                        repeat: false,
                         float: null,
                         operation: null});
         break;
-      case 'e':
+      case '𝑒':
         this.setState({display: {
                         num: Math.E,
                         operation: this.state.operation
@@ -77,7 +80,7 @@ class Calculator extends Component {
                       currNum: r});
         break;
       case '.':
-        if (!this.state.float) {
+        if (!this.state.float) { //this ugliness is to display the decimal point when it's pushed
           let numStr = this.state.currNum.toString();
           const digits = numStr.length * this.state.base;
           this.setState({ float: digits,

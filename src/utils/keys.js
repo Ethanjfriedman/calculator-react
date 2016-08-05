@@ -9,7 +9,7 @@ export default [
     { value: 8, type: 'num' },
     { value: 9, type: 'num' },
     { value: 0, type: 'num' },
-    { value: '+', type: 'op' },
+    { value: '+', type: 'op', tooltip: 'addition' }, //TODO 
     { value: '-', type: 'op' },
     { value: '*', type: 'op' },
     { value: '÷', type: 'op' },

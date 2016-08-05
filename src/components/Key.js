@@ -43,7 +43,7 @@ class Key extends Component {
                                             multiline={true}>{this.props.tooltip}
                               </ReactTooltip>
                             : null;
-                            
+
     return (
       <div>
       <div style={finalStyle}
@@ -59,5 +59,12 @@ class Key extends Component {
     );
   }
 }
+
+Key.PropTypes = {
+  tooltip: React.PropTypes.string,
+  onClickHandler: React.PropTypes.func.isRequired,
+  keyStyle: React.PropTypes.object,
+  value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired
+};
 
 export default Key

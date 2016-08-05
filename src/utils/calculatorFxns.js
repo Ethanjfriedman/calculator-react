@@ -33,6 +33,7 @@ export default {
     }
     return fact;
   },
+  log2: function(a) { return Math.log2(a); },
   setOperation: function(op) {
     switch (op) {
       case '+':
@@ -71,6 +72,8 @@ export default {
         return this.inverse;
       case 'x!':
         return this.factorial;
+      case 'log₂':
+        return this.log2;
       default:
         console.error('Error in /src/utils/calculatorFxns.js switch statement.');
         return null;

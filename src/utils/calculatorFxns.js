@@ -6,14 +6,17 @@ export default {
   subtract: function(a, b) { return a - b; },
   multiply: function(a, b) { return a * b; },
   divide: function(a, b) {
-    if (!b) { return 'ERR Divide By Zero'; }
-    return a / b;
+    return !b ? 'Error: Cannot Divide By Zero': a / b;
   },
   switchSign: function(a) { return -a; },
-  squareRoot: function(a) { return Math.sqrt(a); },
+  squareRoot: function(a) {
+    return a < 0 ? 'Error: Cannot find square root of negative number': Math.sqrt(a);
+  },
   square: function(a) { return a * a; },
-  ln: function(a) { return Math.log(a); },
-  log10: function(a) { return Math.log10(a); },
+  ln: function(a) {
+    return a < 0 ? 'Error: Cannot find natural logarithm of negative number' : Math.log(a); },
+  log10: function(a) {
+    return a < 0 ? 'Error Cannot find logarithm (base 10) of negative number' : Math.log10(a); },
   xToY: function(a, b) { return Math.pow(a, b); },
   sin: function(a) { return Math.sin(a); },
   cos: function(a) { return Math.cos(a); },

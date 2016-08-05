@@ -57,7 +57,7 @@ class Calculator extends Component {
                         float: null,
                         operation: null});
         break;
-      case 'e':
+      case '𝑒':
         this.setState({display: {
                         num: Math.E,
                         operation: this.state.operation

@@ -18,7 +18,7 @@ A simple pocket calculator, built in React.
 * Add in memory (M+, MR, MC keys)
 * ~~Add in clear button~~
 * Add in 'repeat previous operation' ability by repeatedly pressing equal sign (so that `3 + 5 = =` will result in 13)
-* Add in better parsing to avoid various errors if impossible key combos are pressed
+* ~~Add in better parsing to avoid various errors if impossible key combos are pressed~~
 * Add in button that reveals additional operators such as:
   - ~~trig operations (sin, cos, tan, etc.)~~
   - scientific notation
@@ -40,3 +40,6 @@ UPDATE 8/4/2016
 * Fixed deployment error (`create-react-app` had automatically added in the `build/` directory to the .gitignore -- grrr).
 * Minor styling
 * Minor refactoring
+* Added in tooltips on operation keys
+* Cannot find square root, ln, or log of a negative number
+* TODO: fix handling decimals with leading zero

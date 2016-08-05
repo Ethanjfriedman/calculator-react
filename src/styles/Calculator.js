@@ -1,6 +1,6 @@
 export default {
   width: '70vw',
-  margin: '5vh auto',
+  margin: '2vh auto',
   border: '2px solid #222',
   boxShadow: '3px 3px 5px #000',
   WebkitBoxShadow: '3px 3px 5px #000',

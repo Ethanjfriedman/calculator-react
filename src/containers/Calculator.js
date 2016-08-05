@@ -4,16 +4,17 @@ import Keyboard from '../components/Keyboard.js'
 import calcFxns from '../utils/calculatorFxns.js';
 import calcStyles from '../styles/Calculator.js';
 
-// TODO use React Immutability helpers for all state modifications!!!
-/// !!! ^^^ !!!
+// TODO use React Immutability helpers for all state modifications
 
 class Calculator extends Component {
   constructor(props) {
     super(props);
-    this.handleNumEntry = this.handleNumEntry.bind(this);
-    this.handleOp = this.handleOp.bind(this);
-    this.handleCalculate = this.handleCalculate.bind(this);
-    this.handleOther = this.handleOther.bind(this);
+    this.bind([
+      'handleNumEntry',
+      'handleOp',
+      'handleCalculate',
+      'handleOther'
+    ]);
     this.state = {
       display: { num: null,
                  operation: null },
@@ -25,6 +26,12 @@ class Calculator extends Component {
       operation: null,
       base: 10          // TODO: add in support for non-base 10 arithmetic
     };
+  }
+
+  bind(methods) {
+    methods.forEach(m => {
+      this[m] = this[m].bind(this);
+    });
   }
 
   handleNumEntry(n) {
@@ -47,10 +54,7 @@ class Calculator extends Component {
         this.setState({currNum: n, display:{num: n, operation: this.state.operation }});
         break
       case 'C':
-        this.setState({ display: {
-                          num: null,
-                          operation: null
-                        },
+        this.setState({ display: {num: null, operation: null},
                         currNum: 0,
                         priorNum: null,
                         repeat: false,
@@ -58,26 +62,17 @@ class Calculator extends Component {
                         operation: null});
         break;
       case '𝑒':
-        this.setState({display: {
-                        num: Math.E,
-                        operation: this.state.operation
-                      },
-                      currNum: Math.E});
+        this.setState({display: { num: Math.E, operation: this.state.operation },
+                       currNum: Math.E});
         break;
       case 'π':
-        this.setState({display: {
-                        num: Math.PI,
-                        operation: this.state.operation
-                      },
+        this.setState({display: { num: Math.PI, operation: this.state.operation },
                       currNum: Math.PI});
         break;
       case 'Rand':
         const r = Math.random();
-        this.setState({display: {
-                        num: r,
-                        operation: this.state.operation
-                      },
-                      currNum: r});
+        this.setState({display: {num: r,operation: this.state.operation },
+                       currNum: r});
         break;
       case '.':
         if (!this.state.float) { //this ugliness is to display the decimal point when it's pushed
@@ -86,8 +81,7 @@ class Calculator extends Component {
           this.setState({ float: digits,
                           display: {
                             num: `${numStr}.`,
-                            operation: this.state.operation
-                          }
+                            operation: this.state.operation }
                         });
         }
       break;
@@ -99,14 +93,11 @@ class Calculator extends Component {
   handleOp(op) {
     if (!this.state.operation) {
       const temp = this.state.currNum;
-      this.setState({ operation: op,
-                      priorNum: temp,
-                      currNum: 0,
-                      display: {
-                        num: this.state.currNum,
-                        operation: op
-                      }
-      });
+      this.setState({operation: op,
+                     priorNum: temp,
+                     currNum: 0,
+                     display: {num: this.state.currNum, operation: op}
+                    });
     }
   }
 
@@ -119,10 +110,7 @@ class Calculator extends Component {
 
   setResult(result) {
     this.setState({
-      display: {
-        num: result,
-        operation: null
-      },
+      display: { num: result, operation: null },
       operation: null,
       float: null,
       priorNum: result,

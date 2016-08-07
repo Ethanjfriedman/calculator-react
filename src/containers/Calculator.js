@@ -41,10 +41,17 @@ class Calculator extends Component {
 
   handleUpdateDisplay(n, float) {
     if (float === null) {
-      this.setState({currNum: n, display: {num: n, operation: this.state.operation }});
+      this.setState({currNum: n,
+                     display: { num: n,
+                                operation: this.state.operation }});
     } else {
-      const newFloat = float * this.state.base;
-      this.setState({ currNum: n, display: {num: n / float, operation: this.state.operation }, float: newFloat});
+      this.setState({
+        currNum: n,
+        display: {
+          num: n / float,
+          operation: this.state.operation
+        },
+        float: float * this.state.base });
     }
   }
 
@@ -96,7 +103,7 @@ class Calculator extends Component {
 
   handleOp(op) {
     if (!this.state.operation) {
-      const temp = this.state.currNum / this.state.float;
+      const temp = this.state.float ? this.state.currNum / this.state.float : this.state.currNum;
       this.setState({operation: op,
                      priorNum: temp,
                      currNum: 0,
@@ -131,6 +138,7 @@ class Calculator extends Component {
                  op={this.state.display.operation} />
         <Keyboard handleNumEntry={this.handleNumEntry}
                   handleOp={this.handleOp}
+                  copyText={this.state.display.num}
                   handleOther={this.handleOther}
                   handleCalculate={this.handleCalculate} />
       </div>

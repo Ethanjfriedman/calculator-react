@@ -38,13 +38,15 @@ class Keyboard extends Component {
            keyStyle={opStyles}
            onClickHandler={this.props.handleOp} />
     );
-    const otherKeys = this.state.otherKeys.map(k =>
-      <Key key={k.value}
-           value={k.value}
-           tooltip={k.tooltip}
-           keyStyle={otherStyles}
-           onClickHandler={this.props.handleOther} />
-    );
+    const otherKeys = this.state.otherKeys.map(k => {
+      const copyText = k.value === 'copy' ? this.props.copyText : null;
+      return <Key key={k.value}
+             value={k.value}
+             tooltip={k.tooltip}
+             copyText={copyText}
+             keyStyle={otherStyles}
+             onClickHandler={this.props.handleOther} />
+       });
 
     const enterKey = <Key value={this.state.enterKey.value}
                           keyStyle={enterStyles}
@@ -66,7 +68,10 @@ class Keyboard extends Component {
 Keyboard.propTypes = {
   handleNumEntry: React.PropTypes.func.isRequired,
   handleOp: React.PropTypes.func.isRequired,
+  copyText: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
   handleCalculate: React.PropTypes.func.isRequired
 };
+
+Keyboard.defaultProps = { copyText: 0 };
 
 export default Keyboard;

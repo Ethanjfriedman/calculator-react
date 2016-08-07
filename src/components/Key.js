@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactTooltip from 'react-tooltip';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 class Key extends Component {
   constructor(props) {
     super(props);
     this.state = {
       hover: false
-    }
+    };
     this.toggleHover = this.toggleHover.bind(this);
   }
 

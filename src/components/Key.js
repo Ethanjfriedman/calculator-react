@@ -6,9 +6,15 @@ class Key extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false
+      hover: false,
+      copied: false
     };
     this.toggleHover = this.toggleHover.bind(this);
+    this.onCopy = this.onCopy.bind(this);
+  }
+
+  onCopy() {
+    this.setState({copied: true});
   }
 
   toggleHover() {
@@ -44,20 +50,40 @@ class Key extends Component {
                                             multiline={true}>{this.props.tooltip}
                               </ReactTooltip>
                             : null;
-
-    return (
-      <div>
-      <div style={finalStyle}
-           data-for={dataTip}
-           data-tip={dataTip}
-           onClick={() => this.props.onClickHandler(this.props.value)}
-           onMouseEnter={this.toggleHover}
-           onMouseLeave={this.toggleHover} >
-        <span>{this.props.value}</span>
-      </div>
-      {tooltip}
-    </div>
-    );
+    if (this.props.value === 'copy') {
+      const copyText = this.props.copyText ? this.props.copyText.toString() : '';
+      // FIXME -- SUBMIT PULL REQUEST TO react-copy-to-clipboard
+      // to allow for number or string for copyText ....
+      return (
+        <div>
+          <CopyToClipboard style={finalStyle}
+                 data-for={dataTip}
+                 data-tip={dataTip}
+                 onCopy={this.onCopy}
+                 text={copyText}
+                 onClick={() => this.props.onClickHandler(this.props.value)}
+                 onMouseEnter={this.toggleHover}
+                 onMouseLeave={this.toggleHover} >
+                 <span>{this.props.value}</span>
+          </CopyToClipboard>
+          {tooltip}
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <div style={finalStyle}
+               data-for={dataTip}
+               data-tip={dataTip}
+               onClick={() => this.props.onClickHandler(this.props.value)}
+               onMouseEnter={this.toggleHover}
+               onMouseLeave={this.toggleHover} >
+            <span>{this.props.value}</span>
+          </div>
+          {tooltip}
+        </div>
+      );
+    }
   }
 }
 
@@ -65,7 +91,9 @@ Key.PropTypes = {
   tooltip: React.PropTypes.string,
   onClickHandler: React.PropTypes.func.isRequired,
   keyStyle: React.PropTypes.object,
+  copyText: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
   value: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired
 };
+
 
 export default Key

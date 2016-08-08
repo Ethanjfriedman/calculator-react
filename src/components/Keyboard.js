@@ -39,14 +39,22 @@ class Keyboard extends Component {
            onClickHandler={this.props.handleOp} />
     );
     const otherKeys = this.state.otherKeys.map(k => {
-      const copyText = k.value === 'copy' ? this.props.copyText : null;
-      return <Key key={k.value}
-             value={k.value}
-             tooltip={k.tooltip}
-             copyText={copyText}
-             keyStyle={otherStyles}
-             onClickHandler={this.props.handleOther} />
-       });
+      if (k.value === 'copy') {
+        const copyText = this.props.copyText || null;
+        return <Key key={k.value}
+                    value={k.value}
+                    tooltip={k.tooltip}
+                    copyText={copyText}
+                    keyStyle={otherStyles}
+                    onClickHandler={this.props.handleOther} />
+      } else {
+        return <Key key={k.value}
+                    value={k.value}
+                    tooltip={k.tooltip}
+                    keyStyle={otherStyles}
+                    onClickHandler={this.props.handleOther} />
+        }
+    });
 
     const enterKey = <Key value={this.state.enterKey.value}
                           keyStyle={enterStyles}

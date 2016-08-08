@@ -6,15 +6,9 @@ class Key extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hover: false,
-      copied: false
+      hover: false
     };
     this.toggleHover = this.toggleHover.bind(this);
-    this.onCopy = this.onCopy.bind(this);
-  }
-
-  onCopy() {
-    this.setState({copied: true});
   }
 
   toggleHover() {
@@ -53,18 +47,18 @@ class Key extends Component {
     if (this.props.value === 'copy') {
       const copyText = this.props.copyText ? this.props.copyText.toString() : '';
       // FIXME -- SUBMIT PULL REQUEST TO react-copy-to-clipboard
-      // to allow for number or string for copyText ....
+      // to allow for number OR string for copyText ....
       return (
         <div>
           <CopyToClipboard style={finalStyle}
                  data-for={dataTip}
                  data-tip={dataTip}
-                 onCopy={this.onCopy}
                  text={copyText}
-                 onClick={() => this.props.onClickHandler(this.props.value)}
                  onMouseEnter={this.toggleHover}
                  onMouseLeave={this.toggleHover} >
-                 <span>{this.props.value}</span>
+             <span onClick={() => this.props.onClickHandler(this.props.value)} >
+               {this.props.value}
+             </span>
           </CopyToClipboard>
           {tooltip}
         </div>

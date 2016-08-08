@@ -24,6 +24,7 @@ class Calculator extends Component {
       float: null,
       priorNum: null,
       operation: null,
+      copied: false,
       base: 10          // TODO: add in support for non-base 10 arithmetic
     };
   }
@@ -94,7 +95,8 @@ class Calculator extends Component {
         }
       break;
       case 'copy':
-
+        console.log('copy clicked');
+        this.setState({copied: !this.state.copied});
       break;
       default:
         console.error('Unrecognized key');
@@ -135,6 +137,7 @@ class Calculator extends Component {
     return (
       <div style={calcStyles}>
         <Display num={this.state.display.num}
+                 copied={this.state.copied}
                  op={this.state.display.operation} />
         <Keyboard handleNumEntry={this.handleNumEntry}
                   handleOp={this.handleOp}

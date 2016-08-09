@@ -13,6 +13,8 @@ A simple pocket calculator, built in React.
 
 ### TO DO
 * Continue refactoring
+* Add in better style management with `Radium`
+* Redux for state management?
 * ~~Add in floating point arithmetic~~
 * Add in ability to operate in non-base 10 arithmetic
 * Add in memory (M+, MR, MC keys)
@@ -26,7 +28,7 @@ A simple pocket calculator, built in React.
   - ~~square root~~
   - ~~x^2~~
   - others?
-* Add in button to copy result to clipboard
+* ~Add in button to copy result to clipboard~
 
 UPDATE 8/3/2016
 * also added in keys for π, *e*, xʸ ...
@@ -43,3 +45,6 @@ UPDATE 8/4/2016
 * Added in tooltips on operation keys
 * Cannot find square root, ln, or log of a negative number
 * TODO: fix handling decimals with leading zero
+* 
+UPDATE 8/8/2016
+* Copy to clipboard added (using module `react-copy-to-clipboard`). 
